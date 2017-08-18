@@ -10,7 +10,6 @@
 		18DED0211F41F033005BA6FE /* InternationalizeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DED01F1F41F033005BA6FE /* InternationalizeTableViewCell.m */; };
 		18DED0221F41F033005BA6FE /* InternationalizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DED0201F41F033005BA6FE /* InternationalizeTableViewCell.xib */; };
 		268C8A2AC1381B4862B430D9 /* Pods_Contacts_ManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB1950A8917FE0C3E2293B9 /* Pods_Contacts_ManagerUITests.framework */; };
-		7E2918ED1F46C4530011CF4B /* ContactData.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2918EC1F46C4530011CF4B /* ContactData.m */; };
 		7E2A65D61F44464700772B23 /* CAButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2A65D51F44464700772B23 /* CAButton.m */; };
 		7E34B0F01F3AD372003F3E20 /* MergeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34B0EF1F3AD372003F3E20 /* MergeViewController.m */; };
 		7E34B0F41F3AD59D003F3E20 /* InternationalizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E34B0F31F3AD59D003F3E20 /* InternationalizeViewController.m */; };
@@ -60,8 +59,6 @@
 		2D97EE82929157DC51A3C1AC /* Pods-Contacts ManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts ManagerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts ManagerUITests/Pods-Contacts ManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		582C60120E458516217B5442 /* Pods_Contacts_ManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Contacts_ManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E1464A939A939DB49F4316D /* Pods-Contacts ManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Contacts ManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Contacts ManagerTests/Pods-Contacts ManagerTests.release.xcconfig"; sourceTree = "<group>"; };
-		7E2918EB1F46C4530011CF4B /* ContactData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactData.h; sourceTree = "<group>"; };
-		7E2918EC1F46C4530011CF4B /* ContactData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactData.m; sourceTree = "<group>"; };
 		7E2A65D41F44464700772B23 /* CAButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAButton.h; sourceTree = "<group>"; };
 		7E2A65D51F44464700772B23 /* CAButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAButton.m; sourceTree = "<group>"; };
 		7E34B0EE1F3AD372003F3E20 /* MergeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MergeViewController.h; sourceTree = "<group>"; };
@@ -277,8 +274,6 @@
 		7E34B1021F3AD87D003F3E20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7E2918EB1F46C4530011CF4B /* ContactData.h */,
-				7E2918EC1F46C4530011CF4B /* ContactData.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -671,7 +666,6 @@
 			files = (
 				7E34B0FC1F3AD68F003F3E20 /* MoreViewController.m in Sources */,
 				18DED0211F41F033005BA6FE /* InternationalizeTableViewCell.m in Sources */,
-				7E2918ED1F46C4530011CF4B /* ContactData.m in Sources */,
 				7E92AAD61F39EEBB0067A236 /* AppDelegate.m in Sources */,
 				7E34B0F41F3AD59D003F3E20 /* InternationalizeViewController.m in Sources */,
 				7E34B0F91F3AD5D4003F3E20 /* ContactsViewController.m in Sources */,
