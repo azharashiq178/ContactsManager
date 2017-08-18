@@ -1,0 +1,6 @@
+framework module Pods_Contacts_ManagerTests {
+  umbrella header "Pods-Contacts ManagerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BFPaperCheckbox.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>DGActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Pods-Contacts Manager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-Contacts ManagerTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-Contacts ManagerUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>libPhoneNumber-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2DDA7363DDF070771B7C6FAD49B1888B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3814077B60A225441E135CD435F07186</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7D5D891676725492FDD435B2ACEBBB3B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93892C86758C422A84295C6618A88F11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96EB69CC11FCE988FE2DFB08E2DF9B99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9FA1BBC21BE34480F56EE2C5775EA0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,21 @@
+PODS:
+  - BFPaperCheckbox (2.1.0)
+  - DGActivityIndicatorView (2.1.1)
+  - Google-Mobile-Ads-SDK (7.21.0)
+  - libPhoneNumber-iOS (0.9.10)
+
+DEPENDENCIES:
+  - BFPaperCheckbox
+  - DGActivityIndicatorView
+  - Google-Mobile-Ads-SDK
+  - libPhoneNumber-iOS (~> 0.8)
+
+SPEC CHECKSUMS:
+  BFPaperCheckbox: 447570b82c15e16e8cf427a83ef1ad04ae1dc6c7
+  DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
+  Google-Mobile-Ads-SDK: 4a6f1b43c8cc0e1e95a3b59d9f52a01671c6f9f3
+  libPhoneNumber-iOS: f721ae4d5854bce60934f9fb9b0b28e8e68913cb
+
+PODFILE CHECKSUM: d83dc0c74bdde9b4255debf560e0586923a6c866
+
+COCOAPODS: 1.2.1
