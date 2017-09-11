@@ -456,7 +456,7 @@
 				TargetAttributes = {
 					7E92AACD1F39EEBA0067A236 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9AUFUUBW55;
+						DevelopmentTeam = ZVPAK2K6QX;
 						ProvisioningStyle = Automatic;
 					};
 					7E92AAE91F39EEBB0067A236 = {
@@ -827,7 +827,7 @@
 			baseConfigurationReference = 9830940A03BCD4C13EBDC0BA /* Pods-Contacts Manager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9AUFUUBW55;
+				DEVELOPMENT_TEAM = ZVPAK2K6QX;
 				INFOPLIST_FILE = "Contacts Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -841,7 +841,7 @@
 			baseConfigurationReference = F8988997E718FE1DEC38D548 /* Pods-Contacts Manager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9AUFUUBW55;
+				DEVELOPMENT_TEAM = ZVPAK2K6QX;
 				INFOPLIST_FILE = "Contacts Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

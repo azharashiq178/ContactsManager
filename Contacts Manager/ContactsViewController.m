@@ -14,7 +14,7 @@
 #import "AppDelegate.h"
 
 @interface ContactsViewController ()
-@property (nonatomic,strong) NSArray *allKeysInDic;
+@property (nonatomic,strong) NSMutableArray *allKeysInDic;
 @property (nonatomic,strong) NSDictionary *contactsDictionary;
 @property (nonatomic,strong) NSMutableArray *sectionColor;
 @property (nonatomic,strong) DGActivityIndicatorView *activityIndicatorView;
@@ -28,32 +28,32 @@
     AppDelegate *appD = [[UIApplication sharedApplication] delegate];
     if([appD.myStoredContacts count]!= 0){
         self.myContacts = appD.myStoredContacts;
-        self.contactsDictionary = @{@"A":[[NSMutableArray alloc] init],
-                                    @"B":[[NSMutableArray alloc] init],
-                                    @"C":[[NSMutableArray alloc] init],
-                                    @"D":[[NSMutableArray alloc] init],
-                                    @"E":[[NSMutableArray alloc] init],
-                                    @"F":[[NSMutableArray alloc] init],
-                                    @"G":[[NSMutableArray alloc] init],
-                                    @"H":[[NSMutableArray alloc] init],
-                                    @"I":[[NSMutableArray alloc] init],
-                                    @"J":[[NSMutableArray alloc] init],
-                                    @"K":[[NSMutableArray alloc] init],
-                                    @"L":[[NSMutableArray alloc] init],
-                                    @"M":[[NSMutableArray alloc] init],
-                                    @"N":[[NSMutableArray alloc] init],
-                                    @"O":[[NSMutableArray alloc] init],
-                                    @"P":[[NSMutableArray alloc] init],
-                                    @"Q":[[NSMutableArray alloc] init],
-                                    @"R":[[NSMutableArray alloc] init],
-                                    @"S":[[NSMutableArray alloc] init],
-                                    @"T":[[NSMutableArray alloc] init],
-                                    @"U":[[NSMutableArray alloc] init],
-                                    @"V":[[NSMutableArray alloc] init],
-                                    @"W":[[NSMutableArray alloc] init],
-                                    @"X":[[NSMutableArray alloc] init],
-                                    @"Y":[[NSMutableArray alloc] init],
-                                    @"Z":[[NSMutableArray alloc] init]};
+//        self.contactsDictionary = @{@"A":[[NSMutableArray alloc] init],
+//                                    @"B":[[NSMutableArray alloc] init],
+//                                    @"C":[[NSMutableArray alloc] init],
+//                                    @"D":[[NSMutableArray alloc] init],
+//                                    @"E":[[NSMutableArray alloc] init],
+//                                    @"F":[[NSMutableArray alloc] init],
+//                                    @"G":[[NSMutableArray alloc] init],
+//                                    @"H":[[NSMutableArray alloc] init],
+//                                    @"I":[[NSMutableArray alloc] init],
+//                                    @"J":[[NSMutableArray alloc] init],
+//                                    @"K":[[NSMutableArray alloc] init],
+//                                    @"L":[[NSMutableArray alloc] init],
+//                                    @"M":[[NSMutableArray alloc] init],
+//                                    @"N":[[NSMutableArray alloc] init],
+//                                    @"O":[[NSMutableArray alloc] init],
+//                                    @"P":[[NSMutableArray alloc] init],
+//                                    @"Q":[[NSMutableArray alloc] init],
+//                                    @"R":[[NSMutableArray alloc] init],
+//                                    @"S":[[NSMutableArray alloc] init],
+//                                    @"T":[[NSMutableArray alloc] init],
+//                                    @"U":[[NSMutableArray alloc] init],
+//                                    @"V":[[NSMutableArray alloc] init],
+//                                    @"W":[[NSMutableArray alloc] init],
+//                                    @"X":[[NSMutableArray alloc] init],
+//                                    @"Y":[[NSMutableArray alloc] init],
+//                                    @"Z":[[NSMutableArray alloc] init]};
         for(int i = 0 ;i < [self.myContacts count] ;i++){
             
             CNContact *contact = [self.myContacts objectAtIndex:i];
@@ -127,7 +127,7 @@
                                 @"X":[[NSMutableArray alloc] init],
                                 @"Y":[[NSMutableArray alloc] init],
                                 @"Z":[[NSMutableArray alloc] init]};
-    self.allKeysInDic = [[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    self.allKeysInDic = (NSMutableArray *)[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     self.sectionColor = [[NSMutableArray alloc] init];
     
@@ -219,6 +219,21 @@
                     NSString *myKey = [contact.givenName substringToIndex:1];
                     [[self.contactsDictionary valueForKey:myKey] addObject:contact];
                 }
+                else if ([contact.givenName length] == 0 && [contact.phoneNumbers count]!= 0){
+                    NSString *myKey = [[[[contact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"digits"] substringToIndex:1];
+                    if([self.contactsDictionary valueForKey:myKey] == nil){
+                        NSLog(@"No Key Found");
+                        NSMutableDictionary *tmpDic = [self.contactsDictionary mutableCopy];
+                        [tmpDic setObject:[[NSMutableArray alloc] init] forKey:myKey];
+//                        [self.allKeysInDic addObject:myKey];
+                        self.contactsDictionary = tmpDic;
+//                        [self.contactsDictionary setValue:[[NSMutableArray alloc] init] forKey:myKey];
+                        
+                        [[self.contactsDictionary valueForKey:myKey] addObject:contact];
+                    }
+                    else
+                        [[self.contactsDictionary valueForKey:myKey] addObject:contact];
+                }
             }];
             dispatch_async(dispatch_get_main_queue(), ^{
                 // code here
@@ -246,10 +261,13 @@
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
-    return [self.allKeysInDic objectAtIndex:section];
+    return [[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if([[self.contactsDictionary valueForKey:[NSString stringWithFormat:@"%@",[self.allKeysInDic objectAtIndex:section]]] count] == 0){
+//    if([[self.contactsDictionary valueForKey:[NSString stringWithFormat:@"%@",[self.allKeysInDic objectAtIndex:section]]] count] == 0){
+    
+    
+    if([[self.contactsDictionary valueForKey:[NSString stringWithFormat:@"%@",[[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]]] count] == 0){
         return 0;
     }
     return 30;
@@ -259,7 +277,7 @@
     [headerView setBackgroundColor:[UIColor whiteColor]];
     UILabel *sectionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, 20, 20)];
     
-    sectionTitleLabel.text = [self.allKeysInDic objectAtIndex:section];
+    sectionTitleLabel.text = [[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
     
     sectionTitleLabel.textColor = [UIColor whiteColor];
     sectionTitleLabel.textAlignment = NSTextAlignmentCenter;
@@ -282,7 +300,7 @@
     return headerView;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [[self.contactsDictionary valueForKey:[self.allKeysInDic objectAtIndex:section]] count];
+    return [[self.contactsDictionary valueForKey:[[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section]] count];
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell"];
@@ -290,7 +308,7 @@
         cell = [[ContactsTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contactCell"];
     }
 //    cell.textLabel.text = @"Azher";
-    CNContact *tmpContact = [[self.contactsDictionary valueForKey:[self.allKeysInDic objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    CNContact *tmpContact = [[self.contactsDictionary valueForKey:[[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
     NSString *tmpStr;
     if(([tmpContact.givenName isEqualToString:@""]) && ([tmpContact.familyName isEqualToString:@""])){
         tmpStr = @"";
@@ -347,7 +365,7 @@
     [self.navigationController.navigationBar setTranslucent:NO];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.03 green:0.18 blue:0.36 alpha:1];
     
-    NSString *tmpKey = [self.allKeysInDic objectAtIndex:indexPath.section];
+    NSString *tmpKey = [[[self.contactsDictionary allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section];
      CNContact *tmpContact = [[self.contactsDictionary objectForKey:tmpKey] objectAtIndex:indexPath.row];
     CNContactStore *store = [CNContactStore new];
     CNContactViewController *picker;
