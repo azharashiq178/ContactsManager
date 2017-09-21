@@ -10,6 +10,7 @@
 #import <StoreKit/StoreKit.h>
 #import "DGActivityIndicatorView.h"
 
+
 @interface MoreViewController ()
 @property (nonatomic,strong) SKStoreProductViewController *storeProductViewController;
 @property (nonatomic,strong) DGActivityIndicatorView *activityIndicatorView;
@@ -57,19 +58,24 @@
     [_activityIndicatorView setHidden:NO];
     
     [_activityIndicatorView startAnimating];
-    [_storeProductViewController setDelegate:self];
-    [_storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"284417350"} completionBlock:^(BOOL result, NSError *error) {
-        if (error) {
-            NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
-            
-        } else {
-            [_activityIndicatorView setHidden:YES];
-            
-            [_activityIndicatorView stopAnimating];
-            // Present Store Product View Controller
-            [self presentViewController:_storeProductViewController animated:YES completion:nil];
-        }
-    }];
+    if([SKStoreReviewController class]){
+        [SKStoreReviewController requestReview];
+        [_activityIndicatorView stopAnimating];
+        
+    }
+//    [_storeProductViewController setDelegate:self];
+//    [_storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"284417350"} completionBlock:^(BOOL result, NSError *error) {
+//        if (error) {
+//            NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
+//            
+//        } else {
+//            [_activityIndicatorView setHidden:YES];
+//            
+//            [_activityIndicatorView stopAnimating];
+//            // Present Store Product View Controller
+//            [self presentViewController:_storeProductViewController animated:YES completion:nil];
+//        }
+//    }];
 }
 - (IBAction)showMoreApps:(id)sender {
 //    SKStoreProductViewController *storeProductViewController = [[SKStoreProductViewController alloc] init];
@@ -79,7 +85,7 @@
     
     [_activityIndicatorView startAnimating];
     [_storeProductViewController setDelegate:self];
-    [_storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"383916386"} completionBlock:^(BOOL result, NSError *error) {
+    [_storeProductViewController loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier : @"1258137713"} completionBlock:^(BOOL result, NSError *error) {
         if (error) {
             NSLog(@"Error %@ with User Info %@.", error, [error userInfo]);
             [_activityIndicatorView setHidden:YES];

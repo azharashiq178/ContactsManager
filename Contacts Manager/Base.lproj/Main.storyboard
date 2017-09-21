@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qnq-7T-obb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qnq-7T-obb">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,10 +30,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huY-Hq-QWf" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="385" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="405" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="bhZ-Vu-CXm"/>
+                                    <constraint firstAttribute="height" constant="50" id="bhZ-Vu-CXm"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -103,10 +103,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnC-AL-7i5" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="448" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="468" width="320" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="fer-YA-aZr"/>
+                                    <constraint firstAttribute="height" constant="50" id="fer-YA-aZr"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -153,10 +153,13 @@
                                     <navigationItem id="sQQ-0S-2Wn"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6p-u7-rtc" customClass="CAButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6p-u7-rtc" customClass="CAButton">
                                 <rect key="frame" x="35" y="155" width="251" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86544597150000002" green="0.89488118890000001" blue="0.90601116420000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="251" id="9vZ-MQ-v6s"/>
+                                    <constraint firstAttribute="height" constant="100" id="MeM-Pm-RR7"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Rate us">
                                     <color key="titleColor" red="0.1540160179" green="0.23796638849999999" blue="0.38907748460000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -170,10 +173,13 @@
                                     <action selector="showMyApp:" destination="sDQ-VV-7fV" eventType="touchUpInside" id="tgJ-XS-hd1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lz-r4-TK4" customClass="CAButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lz-r4-TK4" customClass="CAButton">
                                 <rect key="frame" x="35" y="263" width="251" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86544597150000002" green="0.89488118890000001" blue="0.90601116420000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="o4A-IP-QSC"/>
+                                    <constraint firstAttribute="width" constant="251" id="rBf-Kj-Rew"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="More Apps">
                                     <color key="titleColor" red="0.1540160179" green="0.23796638849999999" blue="0.38907748460000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,8 +197,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mfD-S0-qDH" firstAttribute="top" secondItem="Jiw-2u-xoP" secondAttribute="top" id="0qs-jA-rjU"/>
+                            <constraint firstItem="4Lz-r4-TK4" firstAttribute="centerY" secondItem="Jiw-2u-xoP" secondAttribute="centerY" constant="53.5" id="2cN-bq-tiL"/>
                             <constraint firstAttribute="trailing" secondItem="mfD-S0-qDH" secondAttribute="trailing" id="faF-U9-GBG"/>
+                            <constraint firstItem="4Lz-r4-TK4" firstAttribute="centerX" secondItem="Jiw-2u-xoP" secondAttribute="centerX" id="hzy-07-TbV"/>
+                            <constraint firstItem="k6p-u7-rtc" firstAttribute="centerX" secondItem="Jiw-2u-xoP" secondAttribute="centerX" id="iTj-sa-NdG"/>
                             <constraint firstItem="mfD-S0-qDH" firstAttribute="leading" secondItem="Jiw-2u-xoP" secondAttribute="leading" id="nw9-QK-ZTQ"/>
+                            <constraint firstItem="k6p-u7-rtc" firstAttribute="centerY" secondItem="Jiw-2u-xoP" secondAttribute="centerY" constant="-54.5" id="tJv-9G-k64"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MORE" image="more_normal_icon" selectedImage="more_selected_icon" id="GdQ-K4-ruC"/>

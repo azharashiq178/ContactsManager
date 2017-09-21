@@ -319,78 +319,81 @@
         cell = [[InternationalizeTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"internationalize"];
     }
     //    cell.textLabel.text = @"Azher";
-    CNContact *tmpContact = [[self.contactsDictionary valueForKey:[self.allKeysInDic objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
-    NSString *tmpStr;
-    if(([tmpContact.givenName isEqualToString:@""]) && ([tmpContact.familyName isEqualToString:@""])){
-        tmpStr = @"";
-    }
-    else if([tmpContact.givenName isEqualToString:@""]){
-        NSString *myString = tmpContact.familyName;
-        if(myString.length == 1){
-            tmpStr = tmpContact.familyName;
+    if([[self.contactsDictionary valueForKey:[self.allKeysInDic objectAtIndex:indexPath.section]] count] != 0){
+        CNContact *tmpContact = [[self.contactsDictionary valueForKey:[self.allKeysInDic objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+        NSString *tmpStr;
+        if(([tmpContact.givenName isEqualToString:@""]) && ([tmpContact.familyName isEqualToString:@""])){
+            tmpStr = @"";
         }
-        else
-            tmpStr = [NSString stringWithFormat:@"%@",[tmpContact.familyName substringToIndex:2]];
-    }
-    else if([tmpContact.familyName isEqualToString:@""]){
-        NSString *myString = tmpContact.givenName;
-        if(myString.length == 1){
-            tmpStr = tmpContact.givenName;
+        else if([tmpContact.givenName isEqualToString:@""]){
+            NSString *myString = tmpContact.familyName;
+            if(myString.length == 1){
+                tmpStr = tmpContact.familyName;
+            }
+            else
+                tmpStr = [NSString stringWithFormat:@"%@",[tmpContact.familyName substringToIndex:2]];
         }
-        else
-            tmpStr = [NSString stringWithFormat:@"%@",[tmpContact.givenName substringToIndex:2]];
-    }
-    else{
-        tmpStr = [NSString stringWithFormat:@"%@%@",[tmpContact.givenName substringToIndex:1],[tmpContact.familyName substringToIndex:1]];
-    }
-    cell.firstLastName.text = tmpStr;
-    
-    if(tmpContact.imageData!=nil){
-        cell.personImage.image = [UIImage imageWithData:tmpContact.imageData];
-        [cell.personImage setHidden:NO];
-        [cell.firstLastName setHidden:YES];
-    }
-    else{
-        [cell.firstLastName setHidden:NO];
-        [cell.personImage setHidden:YES];
-    }
-    
-    if([tmpContact.phoneNumbers count]!= 0){
-        cell.personPhoneNo.text = [NSString stringWithFormat:@"%@",[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"digits"]];
-    }
-    else{
-        cell.personPhoneNo.text = @"";
-    }
-    
-    cell.firstName.text = [NSString stringWithFormat:@"%@ %@",tmpContact.givenName,tmpContact.familyName];
-//    NSLog(@"%@",[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]);
-    
-    
-//    cell.flagImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]]];
-    
-    if([tmpContact.phoneNumbers count]!=0){
-        NSString *country = [[NSLocale systemLocale] displayNameForKey:NSLocaleCountryCode value:[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]];
-        if(country != nil && ![country  isEqual: @""]){
-            [cell.flagImage.layer setCornerRadius:15];
-            cell.flagImage.clipsToBounds = YES;
-            cell.flagImage.image = [UIImage imageNamed:country];
+        else if([tmpContact.familyName isEqualToString:@""]){
+            NSString *myString = tmpContact.givenName;
+            if(myString.length == 1){
+                tmpStr = tmpContact.givenName;
+            }
+            else
+                tmpStr = [NSString stringWithFormat:@"%@",[tmpContact.givenName substringToIndex:2]];
         }
+        else{
+            tmpStr = [NSString stringWithFormat:@"%@%@",[tmpContact.givenName substringToIndex:1],[tmpContact.familyName substringToIndex:1]];
+        }
+        cell.firstLastName.text = tmpStr;
+        
+        if(tmpContact.imageData!=nil){
+            cell.personImage.image = [UIImage imageWithData:tmpContact.imageData];
+            [cell.personImage setHidden:NO];
+            [cell.firstLastName setHidden:YES];
+        }
+        else{
+            [cell.firstLastName setHidden:NO];
+            [cell.personImage setHidden:YES];
+        }
+        
+        if([tmpContact.phoneNumbers count]!= 0){
+            cell.personPhoneNo.text = [NSString stringWithFormat:@"%@",[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"digits"]];
+        }
+        else{
+            cell.personPhoneNo.text = @"";
+        }
+        
+        cell.firstName.text = [NSString stringWithFormat:@"%@ %@",tmpContact.givenName,tmpContact.familyName];
+        //    NSLog(@"%@",[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]);
+        
+        
+        //    cell.flagImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]]];
+        
+        if([tmpContact.phoneNumbers count]!=0){
+            NSString *country = [[NSLocale systemLocale] displayNameForKey:NSLocaleCountryCode value:[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]];
+            if(country != nil && ![country  isEqual: @""]){
+                [cell.flagImage.layer setCornerRadius:15];
+                cell.flagImage.clipsToBounds = YES;
+                cell.flagImage.image = [UIImage imageNamed:country];
+            }
+            
+            else
+                cell.flagImage.image = nil;
+        }
+        
+        //    NSString *country = [[NSLocale systemLocale] displayNameForKey:NSLocaleCountryCode value:[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]];
+        //    if(country != nil && ![country  isEqual: @""]){
+        //        [cell.flagImage.layer setCornerRadius:15];
+        //        cell.flagImage.clipsToBounds = YES;
+        //        cell.flagImage.image = [UIImage imageNamed:country];
+        //    }
         
         else
             cell.flagImage.image = nil;
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
-//    NSString *country = [[NSLocale systemLocale] displayNameForKey:NSLocaleCountryCode value:[[[tmpContact.phoneNumbers objectAtIndex:0] valueForKey:@"value"] valueForKey:@"countryCode"]];
-//    if(country != nil && ![country  isEqual: @""]){
-//        [cell.flagImage.layer setCornerRadius:15];
-//        cell.flagImage.clipsToBounds = YES;
-//        cell.flagImage.image = [UIImage imageNamed:country];
-//    }
-    
-    else
-        cell.flagImage.image = nil;
-    
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 //    cell.textLabel.text = @"Azher";
     return cell;
 }
